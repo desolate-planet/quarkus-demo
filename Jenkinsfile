@@ -1,4 +1,4 @@
-import groovyx.net.http.HTTPBuilder
+
 
 pipeline {
     
@@ -8,11 +8,10 @@ pipeline {
         
         stage("build"){
             
-            steps{
-                
-                def http = new HTTPBuilder('https://google.com')
-                def html = http.get(path : '/search', query : [q:'waffles'])
-                echo html
+            steps{       
+                def response = httpRequest 'http://localhost:8080/jenkins/api/json?pretty=true'
+                println("Status: "+response.status)
+                println("Content: "+response.content)         
             }
             
         }
