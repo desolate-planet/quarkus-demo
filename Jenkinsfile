@@ -11,7 +11,7 @@ pipeline {
             
                 script{
                     curl -s -o /dev/null -w "%{http_code}"
-                    def response = sh(script: "curl -s -0 /dev/null -w '%{http_code}' http://host.docker.internal:8089/unavailable", returnStdout: true)
+                    def response = sh(script: "curl -s -0 /dev/null -w '%{http_code}' http://host.docker.internal:8089/unavailable, returnStdout: true)
                     echo response
                 }
             }
