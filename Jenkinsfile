@@ -7,8 +7,14 @@ pipeline {
     stages {
         
         stage("init"){
-               def response = sh(script: 'curl http://www.google.com', returnStdout: true)
-               echo response
+            steps{
+            
+                script{
+                   def response = sh(script: 'curl http://www.google.com', returnStdout: true)
+                   echo response
+                }
+            }
+              
         }
         
         stage("build"){
