@@ -10,7 +10,7 @@ pipeline {
             steps{
             
                 script{
-                    def response = sh(script: "curl -I http://host.docker.internal:8089/unavailable", returnStdout: true)
+                    def response = sh(script: "curl -s -w '\\n%{response_code}' http://host.docker.internal:8089/unavailable", returnStdout: true).trim().tokenize("\n")
                    echo response
                 }
             }
