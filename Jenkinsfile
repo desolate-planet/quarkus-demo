@@ -9,8 +9,7 @@ pipeline {
         stage("init"){
             steps{
             
-                script{
-              curl -s -o /dev/null -w "%{http_code}" http://localhost:8089/unavailable
+                script{          
                     def response = sh(script: "curl -s -o /dev/null -w %{http_code} http://host.docker.internal:8089/unavailable", returnStdout: true)
                     echo response
                 }
