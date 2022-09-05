@@ -1,3 +1,5 @@
+import groovyx.net.http.HTTPBuilder
+
 pipeline {
     
     agent any
@@ -7,7 +9,11 @@ pipeline {
         stage("build"){
             
             steps{
-                echo 'building the application...'
+                
+                def http = new HTTPBuilder('https://google.com')
+                def html = http.get(path : '/search', query : [q:'waffles']
+                
+                echo html
             }
             
         }
