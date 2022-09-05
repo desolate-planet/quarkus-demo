@@ -10,7 +10,7 @@ pipeline {
             steps{
             
                 script{
-                    def response = sh(script: "curl http://www.google.com -L -k -s -w '%{http_code}'", returnStdout: true)
+                    def response = sh(script: "curl http://localhost:8089/unavailable -L -k -s -w '%{http_code}'", returnStdout: true)
                    echo response
                 }
             }
