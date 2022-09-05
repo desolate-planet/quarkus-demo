@@ -13,7 +13,7 @@ pipeline {
                 def http = new HTTPBuilder('https://google.com')
                 def html = http.get(path : '/search', query : [q:'waffles']
                 
-                echo html
+                                    echo "${html}"
             }
             
         }
