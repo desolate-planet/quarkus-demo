@@ -11,9 +11,8 @@ pipeline {
             steps{
                 
                 def http = new HTTPBuilder('https://google.com')
-                def html = http.get(path : '/search', query : [q:'waffles']
-                
-                                    echo "${html}"
+                def html = http.get(path : '/search', query : [q:'waffles'])
+                echo html
             }
             
         }
